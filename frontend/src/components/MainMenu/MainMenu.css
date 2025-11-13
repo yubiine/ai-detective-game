@@ -1,112 +1,235 @@
-/* MainMenu.css */
-
+/* --- 1. 메인 컨테이너 (배경) --- */
 .main-menu-container {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-  
-    /* [중요] 여기에 '탐정 사무실 책상 배경' 이미지를 넣어야 합니다.
-      해당 이미지를 frontend/src/assets/ 폴더 등에 넣고 경로를 지정하세요.
-    */
-    background-image: url('../../assets/desk_background.jpg'); /* 예시 경로 */
-    background-color: #3d342e; /* 이미지가 없을 경우를 대비한 어두운 나무색 */
-    background-size: cover;
-    background-position: center;
-    
-    /* 책상 위 스포트라이트 효과 */
-    background-image: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.5) 80%), 
-                      url('../../assets/desk_background.jpg'); /* 예시 경로 */
-  
-    /* 소품들(잉크병, 펜)은 배경 이미지에 포함시키는 것이 좋습니다. */
-  }
-  
-  /* 중앙 파일 폴더 영역 */
-  .menu-folder-area {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 1500px; 
-    height: 800px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .folder-background {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: contain; 
-  }
-  
-  /* 파일 폴더 안쪽의 종이 영역 */
-  .folder-content {
-    position: relative; 
-    z-index: 2;
-    width: 80%;
-    height: 85%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-top: 1rem;
-    text-align: center;
-    /* font-family: 'Courier New', Courier, monospace; <-- 삭제 (개별 지정) */
-  }
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
 
-  /* 새로 추가된 한글 제목 스타일 */
-  .menu-title-ko {
-    font-size: 1.5rem; /* 제목 크기 */
-    font-weight: 700;  /* 굵게 */
-    margin: 0;
-    color: #4A2B00; /* 어두운 글자색 */
-    margin-top: 2.5rem;
-    margin-left: -6rem;
-
-    /* (수정됨) 'Nanum Myeongjo'를 한글 폰트로 추가 */
-    font-family: 'Playfair Display', 'Nanum Myeongjo', Lora, Merriweather, serif;
-  }
+  /* 배경 이미지 경로입니다. 
+    'frontend/src/assets/desk_background.jpg'에 이미지를 넣어주세요.
+  */
+  background-color: #3d342e; /* 이미지가 없을 경우를 대비한 어두운 나무색 */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   
-  /* 새로 추가된 한글 부제 스타일 */
-  .menu-subtitle-ko { 
-    font-size: 1.1rem; /* 부제 크기 */
-    font-weight: normal;
-    color: #555; /* 약간 연한 글자색 */
-    margin-top: 0.3rem; /* 제목과의 간격 */
-    margin-left: -6rem;
+  /* 책상 위 스포트라이트 효과 + 배경 이미지 */
+  background-image: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.5) 80%), 
+                    url('../../assets/desk_background.jpg');
+}
 
-    /* (수정됨) 'Nanum Myeongjo'를 한글 폰트로 추가 */
-    font-family: 'Lora', 'Nanum Myeongjo', Merriweather, serif;
-  }
-
-  .menu-button-group {
-    margin-top: 0.2rem;  /* 버튼 그룹을 폴더 탭 아래로 내리기 */
-    margin-left: -6rem; /* 중앙 정렬을 위해 약간 왼쪽으로 이동 */
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;  /* 간격 조정 */
-  }
+/* --- 2. 중앙 파일 폴더 영역 --- */
+.menu-folder-area {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1500px; /* (사용자가 지정한 크기) */
+  height: 800px; /* (사용자가 지정한 크기) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   
-  /* 이미지 속 버튼 스타일 */
-  .menu-button {
-    background-color: #795548; /* 갈색 */
-    color: #F8F4EA;
-    border: 2px solid #5d4037;
-    padding: 0.2rem 1rem; /* 버튼 높이 조정 */
-    width: 170px; /* 버튼 너비 조정 */
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.2s, transform 0.1s;
+  /* (애니메이션 추가) 0.5초 동안 부드럽게 변하도록 설정 */
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
 
-    /* (수정됨) 'Nanum Myeongjo'를 한글 폰트로 추가 */
-    font-family: 'Lora', 'Nanum Myeongjo', Merriweather, serif;
-  }
+.folder-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+}
+
+/* --- 3. 파일 폴더 안쪽 (종이 영역) --- */
+.folder-content {
+  position: relative; 
+  z-index: 2;
+  width: 80%;
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 세로 중앙 정렬 */
+  align-items: center;   /* 가로 중앙 정렬 */
+  padding-top: 1rem;
+  text-align: center;
+
+  /* (애니메이션 추가) 0.5초(더 빨리) 동안 부드럽게 변하도록 설정 */
+  transition: opacity 0.3s ease-in; 
+}
+
+/* --- 4. 한글 텍스트 스타일 (index.html 폰트 적용) --- */
+.menu-title-ko {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+  color: #333;
+  margin-top: 2rem; 
+
+  margin-left: -6rem; /* (사용자 지정) 왼쪽으로 약간 이동 */
+
+  /* 한글 'Nanum Myeongjo'를 먼저 시도, 없으면 영문 'Playfair' 사용 */
+  font-family: 'Nanum Myeongjo', 'Playfair Display', Lora, Merriweather, serif;
+}
+
+.menu-subtitle-ko { 
+  font-size: 1.1rem;
+  font-weight: normal;
+  color: #555;
+  margin-top: 0.5rem; /* 제목과의 간격 */
+  margin-left: -6rem; /* (사용자 지정) 왼쪽으로 약간 이동 */
+
+  /* 한글 'Nanum Myeongjo'를 먼저 시도, 없으면 영문 'Lora' 사용 */
+  font-family: 'Nanum Myeongjo', Lora, Merriweather, serif;
+}
+
+/* --- 5. 버튼 그룹 --- */
+.menu-button-group {
+  margin-top: 0.5rem;  /* (사용자 지정) 부제와의 간격 */
+  margin-left: -6rem; /* (사용자 지정) 왼쪽으로 약간 이동 */
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.menu-button {
+  background-color: #795548;
+  color: #F8F4EA;
+  border: 2px solid #5d37;
+  padding: 0.2rem 1rem;
+  width: 170px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s, transform 0.1s;
   
-  .menu-button:hover {
-    background-color: #8d6e63;
-    transform: translateY(-2px);
-  }
+  /* 한글 'Nanum Myeongjo'를 먼저 시도, 없으면 영문 'Lora' 사용 */
+  font-family: 'Nanum Myeongjo', Lora, Merriweather, serif;
+}
+
+.menu-button:hover {
+  background-color: #8d6e63;
+  transform: translateY(-2px);
+}
+
+/* --- 6. '새 게임' 클릭 시 적용될 애니메이션 클래스 --- */
+
+/* (이름 수정) MainMenu.tsx의 'folder-zoom-active'와 일치시킴 */
+.folder-zoom-active {
+  transform: translate(-50%, -50%) scale(1.8);
+  opacity: 1; /* (수정) 폴더는 사라지지 않고 확대만 되도록 1로 유지 */
+}
+
+/* 폴더 안의 글자와 버튼이 사라짐 (페이드아웃 효과) */
+.content-fade-out {
+  opacity: 0;
+  transform: scale(0.95); /* (선택) 살짝 작아지며 사라짐 */
+}
+
+/* --- 7. (★★★★★ 새로 추가!) '사건 일지' 스타일 --- */
+
+/* 7-1. Fade-in/out을 위한 래퍼 (공통) */
+.menu-view,
+.briefing-view {
+width: 100%;
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+/* 7-2. Fade In 애니메이션 정의 */
+@keyframes fadeIn {
+from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+to {
+  opacity: 1;
+  transform: translateY(0);
+}
+}
+
+/* 7-3. '사건 일지'가 나타날 때 Fade In 효과 적용 */
+.content-fade-in {
+/* .menu-view 와 .briefing-view 에 모두 적용됩니다 */
+animation: fadeIn 0.5s ease-out 0.3s forwards; /* 0.3초 딜레이 후 시작 */
+opacity: 0; /* 애니메이션 시작 전에는 숨김 */
+}
+
+/* 7-4. "사건 일지" 뷰의 스타일
+    (CaseBriefing.css의 스타일을 여기에 복사해옵니다)
+*/
+.briefing-title {
+color: #1a1a2e;
+font-size: 2rem;
+font-weight: bold;
+margin: 0;
+text-align: center;
+font-family: 'Nanum Myeongjo', 'Playfair Display', serif;
+}
+
+.briefing-subtitle {
+color: #b0b0b0;
+font-size: 0.875rem;
+text-align: center;
+margin: 0.5rem 0 2.5rem 0;
+letter-spacing: 1px;
+font-family: 'Arial', sans-serif;
+}
+
+.briefing-content {
+width: 90%; /* 폴더 안이므로 꽉 채우지 않게 */
+font-family: 'Nanum Myeongjo', 'Lora', serif;
+}
+
+.briefing-content p {
+margin-bottom: 1.25rem;
+color: #333;
+font-size: 1rem;
+line-height: 1.6;
+}
+
+.briefing-content strong {
+color: #1a1a2e;
+font-weight: bold;
+display: block;
+margin-bottom: 0.25rem;
+}
+
+.briefing-actions {
+margin-top: 2rem; /* (수정) 여백 살짝 줄임 */
+text-align: center;
+width: 100%;
+}
+
+.accept-button {
+background-color: #1a1a2e;
+color: white;
+border: none;
+padding: 0.8rem 2rem;
+font-size: 1rem;
+font-weight: bold;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.2s;
+width: 50%;
+font-family: 'Nanum Myeongjo', 'Arial', sans-serif;
+}
+
+.accept-button:hover {
+background-color: #3a3a5e;
+}
+
+.decline-button {
+background: none;
+border: none;
+color: #999;
+cursor: pointer;
+margin-top: 1rem;
+font-size: 0.875rem;
+text-decoration: underline;
+font-family: 'Arial', sans-serif;
+}
