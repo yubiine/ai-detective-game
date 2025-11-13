@@ -1,4 +1,3 @@
-import React from 'react';
 import './CaseBriefing.css'; // 3단계에서 만들 CSS 파일
 
 // TypeScript: 이 컴포넌트가 받을 props의 타입을 정의합니다.

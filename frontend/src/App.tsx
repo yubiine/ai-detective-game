@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-
+import { useState } from 'react';
 // MainMenu 컴포넌트만 임포트합니다. (CaseBriefing은 MainMenu 안으로 합쳐집니다)
 import MainMenu from './components/MainMenu/MainMenu';
 import './App.css'; 
