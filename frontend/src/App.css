@@ -1,0 +1,28 @@
+/* frontend/src/App.css */
+
+/*
+  App.tsx의 <div className="App"> ... </div> 가
+  화면 전체(100%)를 차지하고,
+  불필요한 여백(padding/margin)을 갖지 않도록 설정합니다.
+*/
+.App {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+  혹시 모를 로딩 화면 등을 위한 기본 스타일 (선택 사항)
+*/
+.loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #1a1a2e;
+  color: white;
+  font-size: 1.5rem;
+  font-family: 'Consolas', 'Menlo', 'monospace';
+}

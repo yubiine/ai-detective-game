@@ -1,0 +1,112 @@
+/* MainMenu.css */
+
+.main-menu-container {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  
+    /* [중요] 여기에 '탐정 사무실 책상 배경' 이미지를 넣어야 합니다.
+      해당 이미지를 frontend/src/assets/ 폴더 등에 넣고 경로를 지정하세요.
+    */
+    background-image: url('../../assets/desk_background.jpg'); /* 예시 경로 */
+    background-color: #3d342e; /* 이미지가 없을 경우를 대비한 어두운 나무색 */
+    background-size: cover;
+    background-position: center;
+    
+    /* 책상 위 스포트라이트 효과 */
+    background-image: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.5) 80%), 
+                      url('../../assets/desk_background.jpg'); /* 예시 경로 */
+  
+    /* 소품들(잉크병, 펜)은 배경 이미지에 포함시키는 것이 좋습니다. */
+  }
+  
+  /* 중앙 파일 폴더 영역 */
+  .menu-folder-area {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1500px; 
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .folder-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+  }
+  
+  /* 파일 폴더 안쪽의 종이 영역 */
+  .folder-content {
+    position: relative; 
+    z-index: 2;
+    width: 80%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+    text-align: center;
+    /* font-family: 'Courier New', Courier, monospace; <-- 삭제 (개별 지정) */
+  }
+
+  /* 새로 추가된 한글 제목 스타일 */
+  .menu-title-ko {
+    font-size: 1.5rem; /* 제목 크기 */
+    font-weight: 700;  /* 굵게 */
+    margin: 0;
+    color: #4A2B00; /* 어두운 글자색 */
+    margin-top: 2.5rem;
+    margin-left: -6rem;
+
+    /* (수정됨) 'Nanum Myeongjo'를 한글 폰트로 추가 */
+    font-family: 'Playfair Display', 'Nanum Myeongjo', Lora, Merriweather, serif;
+  }
+  
+  /* 새로 추가된 한글 부제 스타일 */
+  .menu-subtitle-ko { 
+    font-size: 1.1rem; /* 부제 크기 */
+    font-weight: normal;
+    color: #555; /* 약간 연한 글자색 */
+    margin-top: 0.3rem; /* 제목과의 간격 */
+    margin-left: -6rem;
+
+    /* (수정됨) 'Nanum Myeongjo'를 한글 폰트로 추가 */
+    font-family: 'Lora', 'Nanum Myeongjo', Merriweather, serif;
+  }
+
+  .menu-button-group {
+    margin-top: 0.2rem;  /* 버튼 그룹을 폴더 탭 아래로 내리기 */
+    margin-left: -6rem; /* 중앙 정렬을 위해 약간 왼쪽으로 이동 */
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;  /* 간격 조정 */
+  }
+  
+  /* 이미지 속 버튼 스타일 */
+  .menu-button {
+    background-color: #795548; /* 갈색 */
+    color: #F8F4EA;
+    border: 2px solid #5d4037;
+    padding: 0.2rem 1rem; /* 버튼 높이 조정 */
+    width: 170px; /* 버튼 너비 조정 */
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s, transform 0.1s;
+
+    /* (수정됨) 'Nanum Myeongjo'를 한글 폰트로 추가 */
+    font-family: 'Lora', 'Nanum Myeongjo', Merriweather, serif;
+  }
+  
+  .menu-button:hover {
+    background-color: #8d6e63;
+    transform: translateY(-2px);
+  }
